@@ -9,7 +9,7 @@ export default function InterviewerListItem(props) {
   });
 
 
-  console.log("props: ", props)
+  // console.log("props: ", props)
   return (
     <li className={interviewerClass} onClick={setInterviewer} id={id} >
       <img
