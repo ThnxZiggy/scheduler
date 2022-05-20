@@ -11,6 +11,8 @@ const Form = function (props) {
 
   const cancel = () => {
     reset()
+    // setStudent("")
+    // setInterviewer(null)
     props.onCancel()
   }
 
@@ -49,3 +51,11 @@ const Form = function (props) {
 };
 
 export default Form;
+
+
+// const abc = function (a,b) {
+//   let c = a+b
+//   return c
+// }
+
+// abc(1);
