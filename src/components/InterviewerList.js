@@ -10,7 +10,7 @@ export default function InterviewerList(props) {
     "interviewers__header",
     "interviewers__list"
   );
-
+    // console.log("interviewer list :", props.interviewers)
   const interviewer = props.interviewers.map((person => {
     // const ifSelected = props.interviewer === person.id
     return (
