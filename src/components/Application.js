@@ -9,7 +9,6 @@ import {
   getInterview,
   getInterviewersForDay,
 } from "helpers/selectors";
-import { process_params } from "express/lib/router";
 
 // const appointments = {
 //   1: {
@@ -98,19 +97,33 @@ export default function Application(props) {
       ...state,
       appointments,
     };
-    
 
-    
-      const bookedInterviewURL = `/api/appointments/${id}`
-      return axios.put(bookedInterviewURL, {interview})
-        .then((res) => {
-        setState(newState);
-      })
-    
+    const bookedInterviewURL = `/api/appointments/${id}`;
+    return axios.put(bookedInterviewURL, { interview }).then((res) => {
+      setState(newState);
+    });
 
     // console.log(id, interview)
   };
 
+  const cancelInterview = function (id, interview) {
+
+    const interviewToCancelURL = `/api/appointments/${id}`;
+    return axios.delete(interviewToCancelURL, { interview }).then(()=> {
+      const appointment = {
+        ...state.appointments[id],
+        interview: null 
+      }
+      const appointments = {
+        ...state.appointments,
+        [id]: appointment,
+      };
+      setState({
+        ...state,
+        appointments,
+      })
+    })
+  }
   // const dailyAppointments = [];
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
@@ -125,6 +138,7 @@ export default function Application(props) {
         interview={interview}
         bookInterview={bookInterview}
         interviewers={dailyInterviewers}
+        cancelInterview={cancelInterview}
       />
     );
   });
