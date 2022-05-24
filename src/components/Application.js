@@ -99,7 +99,7 @@ export default function Application(props) {
     };
 
     const bookedInterviewURL = `/api/appointments/${id}`;
-    return axios.put(bookedInterviewURL, { interview }).then((res) => {
+    return axios.put(bookedInterviewURL, { interview }).then(() => {
       setState(newState);
     });
 
@@ -124,6 +124,27 @@ export default function Application(props) {
       })
     })
   }
+
+  const editInterview = function (id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview },
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+    const newState = {
+      ...state,
+      appointments,
+    };
+
+    const bookedInterviewURL = `/api/appointments/${id}`;
+    return axios.put(bookedInterviewURL, { interview }).then((res) => {
+      setState(newState);
+    });
+  }
   // const dailyAppointments = [];
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
@@ -139,6 +160,7 @@ export default function Application(props) {
         bookInterview={bookInterview}
         interviewers={dailyInterviewers}
         cancelInterview={cancelInterview}
+        editInterview={editInterview}
       />
     );
   });

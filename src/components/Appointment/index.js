@@ -16,6 +16,7 @@ const Appointment = function (props) {
   const SAVING = "SAVING";
   const DELETING = "DELETING";
   const CONFIRM = "CONFIRM";
+  const EDIT = "EDIT";
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
@@ -37,6 +38,17 @@ const Appointment = function (props) {
       transition("EMPTY");
     });
   };
+
+  const updateInterview = function (name, interviewer) {
+    const interview = {
+      student: name,
+      interviewer,
+    };
+    transition("SAVING");
+    props.editInterview(props.id, interview).then((res) => {
+      transition("SHOW");
+    });
+  }
   // console.log("this is the props: ", props)
   return (
     <article className="appointment">
@@ -47,6 +59,16 @@ const Appointment = function (props) {
           student={props.interview.student}
           interviewer={props.interview.interviewer}
           onDelete={() => transition(CONFIRM)}
+          onEdit={() => transition(EDIT)}
+        />
+      )}
+      {mode === EDIT && (
+        <Form
+          interviewers={props.interviewers}
+          interviewer={props.interview.interviewer}
+          student={props.interview.student}
+          onCancel={() => back()}
+          onSave={updateInterview}
         />
       )}
       {mode === CONFIRM && (
