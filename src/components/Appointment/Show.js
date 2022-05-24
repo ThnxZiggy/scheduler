@@ -1,8 +1,7 @@
 import React from "react";
 
-
 const Show = function (props) {
-  console.log("this is the props: ", props)
+  console.log("this is the props: ", props);
   return (
     <main className="appointment__card appointment__card--show">
       <section className="appointment__card-left">
@@ -19,7 +18,6 @@ const Show = function (props) {
             src="images/edit.png"
             alt="Edit"
             onClick={props.onEdit}
-
           />
           <img
             className="appointment__actions-button"

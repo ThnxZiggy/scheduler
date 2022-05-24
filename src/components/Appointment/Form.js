@@ -3,23 +3,21 @@ import Button from "components/Button";
 import InterviewerList from "components/InterviewerList";
 import { useState } from "react";
 
-
 const Form = function (props) {
-
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
   const cancel = () => {
-    reset()
+    reset();
     // setStudent("")
     // setInterviewer(null)
-    props.onCancel()
-  }
+    props.onCancel();
+  };
 
   const reset = () => {
-    setStudent("")
-    setInterviewer(null)
-  }
+    setStudent("");
+    setInterviewer(null);
+  };
 
   return (
     <main className="appointment__card appointment__card--create">
@@ -34,7 +32,7 @@ const Form = function (props) {
             onChange={(event) => setStudent(event.target.value)}
           />
         </form>
-        <InterviewerList 
+        <InterviewerList
           interviewers={props.interviewers}
           value={interviewer}
           onChange={setInterviewer}
@@ -42,8 +40,17 @@ const Form = function (props) {
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onClick={cancel}>Cancel</Button>
-          <Button confirm onClick={() => {props.onSave(student, interviewer)}}>Save</Button>
+          <Button danger onClick={cancel}>
+            Cancel
+          </Button>
+          <Button
+            confirm
+            onClick={() => {
+              props.onSave(student, interviewer);
+            }}
+          >
+            Save
+          </Button>
         </section>
       </section>
     </main>
@@ -51,7 +58,6 @@ const Form = function (props) {
 };
 
 export default Form;
-
 
 // const abc = function (a,b) {
 //   let c = a+b
