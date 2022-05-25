@@ -18,23 +18,26 @@ export default function useApplicationData() {
     const currentDay = state.days.find((day) => day.name === state.day);
     const appointmentIDs = currentDay.appointments;
 
-    const spots = appointmentIDs.filter((id) => !appointments[id].interview).length
+    const spots = appointmentIDs.filter(
+      (id) => !appointments[id].interview
+    ).length;
 
     return spots;
   };
 
   const updateSpots = (state, appointments) => {
-    
-    const updatedDays = [...state.days]
-    const updatedDay = {...state.days.find((day) => day.name === state.day)}
+    const updatedDays = [...state.days];
+    const updatedDay = { ...state.days.find((day) => day.name === state.day) };
 
-    const spots = countSpots(state, appointments)
-    updatedDay.spots = spots
-    const updatedDayIndex = state.days.findIndex((day) => day.name === state.day)
-    updatedDays[updatedDayIndex] = updatedDay
+    const spots = countSpots(state, appointments);
+    updatedDay.spots = spots;
+    const updatedDayIndex = state.days.findIndex(
+      (day) => day.name === state.day
+    );
+    updatedDays[updatedDayIndex] = updatedDay;
 
     return updatedDays;
-  }
+  };
 
   useEffect(() => {
     const daysURL = `/api/days`;
@@ -73,10 +76,8 @@ export default function useApplicationData() {
     const newState = {
       ...state,
       appointments,
-      days: spotCount
+      days: spotCount,
     };
-    
-    
 
     const bookedInterviewURL = `/api/appointments/${id}`;
     return axios.put(bookedInterviewURL, { interview }).then(() => {
@@ -85,11 +86,6 @@ export default function useApplicationData() {
 
     // console.log(id, interview)
   };
-
-
-
-
-
 
   const cancelInterview = function (id) {
     const appointment = {
@@ -108,16 +104,10 @@ export default function useApplicationData() {
       setState({
         ...state,
         appointments,
-        days: spotCount
+        days: spotCount,
       });
     });
   };
-
-
-
-
-
-
 
   const editInterview = function (id, interview) {
     const appointment = {
@@ -145,7 +135,6 @@ export default function useApplicationData() {
     setDay,
     bookInterview,
     cancelInterview,
-    editInterview,
-    updateSpots
+    editInterview
   };
 }

@@ -4,10 +4,13 @@ import "components/InterviewerList.scss";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 
+
+InterviewerList.propTypes = {
+  interviewers: PropTypes.array.isRequired,
+};
+
 export default function InterviewerList(props) {
-  InterviewerList.propTypes = {
-    interviewers: PropTypes.array.isRequired,
-  };
+
   const interviewerSCSS = classNames(
     "interviewers",
     "interviewers__header",
