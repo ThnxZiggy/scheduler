@@ -21,11 +21,10 @@ describe("Empty", () => {
   it("renders without crashing", () => {
     render(<Empty />);
   });
- 
 });
 
 describe("Show", () => {
   it("renders without crashing", () => {
-    render(<Show />);
+    render(<Show interviewer={"example"} />);
   });
 });
