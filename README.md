@@ -5,9 +5,19 @@ This project would not be possible without the wonderful help of Lighthouse Labs
 
 ## Project Description
 
-Interview Scheduler is a single page app students can use to book appointments with interviewers built with React. Students can book one or many of 25 appointment slots with an interviewer of their choice.
+Interview Scheduler is a single page app students can use to book appointments with interviewers built with React. Students can book one or many of 25 appointment slots with an interviewer of their choice. This is also mobile friendly!
 
 ## Screenshots
+
+Home Page
+![Landing page](https://github.com/ThnxZiggy/scheduler/blob/master/docs/Booking%20Appointment.png)
+
+Booking an appointment
+![booking an appointment](https://github.com/ThnxZiggy/scheduler/blob/master/docs/Booking%20Appointment.png)
+
+Deleting an appointment
+![deleting an appointment](https://github.com/ThnxZiggy/scheduler/blob/master/docs/Deleting%20Appointment.png)
+
 
 ## Dependencies
 ```sh
