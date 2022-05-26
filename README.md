@@ -10,7 +10,7 @@ Interview Scheduler is a single page app students can use to book appointments w
 ## Screenshots
 
 Home Page
-![Landing page](https://github.com/ThnxZiggy/scheduler/blob/master/docs/Booking%20Appointment.png)
+![Landing page](https://github.com/ThnxZiggy/scheduler/blob/master/docs/Landing%20Page.png)
 
 Booking an appointment
 ![booking an appointment](https://github.com/ThnxZiggy/scheduler/blob/master/docs/Booking%20Appointment.png)
