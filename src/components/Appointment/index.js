@@ -60,7 +60,7 @@ const Appointment = function (props) {
       })
       .catch((error) => transition(ERROR_SAVE, true));
   };
-  // console.log("this is the props: ", props)
+
   return (
     <article className="appointment">
       <Header time={props.time} />
@@ -83,8 +83,6 @@ const Appointment = function (props) {
           student={props.interview.student}
           onCancel={back}
           onSave={updateInterview}
-          // id={props.interview.interviewer.id}
-          //pass interviewer ID
         />
       )}
       {mode === CONFIRM && (
