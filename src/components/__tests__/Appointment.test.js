@@ -8,23 +8,4 @@ describe("Appointment", () => {
   it("renders without crashing", () => {
     render(<Appointment />);
   });
-  it("does something it is supposed to do", () => {
-    //does something
-  });
-
-  it("Does something else", () => {
-    //does something
-  });
-});
-
-describe("Empty", () => {
-  it("renders without crashing", () => {
-    render(<Empty />);
-  });
-});
-
-describe("Show", () => {
-  it("renders without crashing", () => {
-    render(<Show interviewer={"example"} />);
-  });
 });

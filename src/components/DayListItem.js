@@ -19,8 +19,8 @@ export default function DayListItem(props) {
   const clickHandler = () => setDay(name)
 
   return (
-    <li className={dayClass} onClick={clickHandler}>
-      <h2 className="text--regular">{name}</h2> 
+    <li className={dayClass} onClick={clickHandler} data-testid="day">
+      <h2 className="text--regular" >{name}</h2> 
       <h3 selected={selected} className="text--light">{formatSpots(spots)} remaining</h3>
     </li>
   );
