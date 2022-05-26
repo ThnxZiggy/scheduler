@@ -54,9 +54,6 @@ export default function useApplicationData() {
         appointments: all[1].data,
         interviewers: all[2].data,
       }));
-      // console.log(JSON.stringify(response))
-      // setDays([...response.data]);
-      // console.log(all);
     });
   }, []);
 
@@ -83,8 +80,6 @@ export default function useApplicationData() {
     return axios.put(bookedInterviewURL, { interview }).then(() => {
       setState(newState);
     });
-
-    // console.log(id, interview)
   };
 
   const cancelInterview = function (id) {
@@ -135,6 +130,6 @@ export default function useApplicationData() {
     setDay,
     bookInterview,
     cancelInterview,
-    editInterview
+    editInterview,
   };
 }

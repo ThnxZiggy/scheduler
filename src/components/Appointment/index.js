@@ -79,10 +79,11 @@ const Appointment = function (props) {
       {mode === EDIT && (
         <Form
           interviewers={props.interviewers}
-          interviewer={props.interview.interviewer}
+          interviewer={props.interview.interviewer.id}
           student={props.interview.student}
           onCancel={back}
           onSave={updateInterview}
+          // id={props.interview.interviewer.id}
           //pass interviewer ID
         />
       )}

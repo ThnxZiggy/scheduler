@@ -4,21 +4,18 @@ import "components/InterviewerList.scss";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 
-
 InterviewerList.propTypes = {
   interviewers: PropTypes.array.isRequired,
 };
 
 export default function InterviewerList(props) {
-
   const interviewerSCSS = classNames(
     "interviewers",
     "interviewers__header",
     "interviewers__list"
   );
-  // console.log("interviewer list :", props.interviewers)
+
   const interviewer = props.interviewers.map((person) => {
-    // const ifSelected = props.interviewer === person.id
     return (
       <InterviewerListItem
         key={person.id}

@@ -10,8 +10,6 @@ export default function useVisualMode(initial) {
       setHistory((prev) => {
         const newHistory = [...prev];
 
-        // newHistory.pop();
-        // newHistory.push(newMode);
         newHistory.splice(newHistory.length - 1, 1, newMode);
         return newHistory;
       });

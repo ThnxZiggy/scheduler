@@ -14,7 +14,7 @@ export function getAppointmentsForDay(state, day) {
   return mappedArr;
 }
 
-// dayListItems = days.map((singleDay) => (
+// alternate option: dayListItems = days.map((singleDay) => (
 // <DayListItem
 
 //   // find the day

@@ -10,8 +10,6 @@ import {
   getInterviewersForDay,
 } from "helpers/selectors";
 
-
-
 // const appointments = {
 //   1: {
 //     id: 1,
@@ -52,19 +50,11 @@ import {
 // };
 
 export default function Application(props) {
-  
-  const {
-    state,
-    setDay,
-    bookInterview,
-    cancelInterview,
-    editInterview,
-  } = useApplicationData();
+  const { state, setDay, bookInterview, cancelInterview, editInterview } =
+    useApplicationData();
 
-  // const dailyAppointments = [];
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
- 
 
   const schedule = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
@@ -78,12 +68,9 @@ export default function Application(props) {
         interviewers={dailyInterviewers}
         cancelInterview={cancelInterview}
         editInterview={editInterview}
-        
       />
     );
   });
-
-  // console.log("application console log: ", state.interviewers)
 
   return (
     <main className="layout">
@@ -102,7 +89,6 @@ export default function Application(props) {
           src="images/lhl.png"
           alt="Lighthouse Labs"
         />
-        {/* Replace this with the sidebar elements during the "Project Setup & Familiarity" activity. */}
       </section>
       <section className="schedule">
         {schedule}
